@@ -1,4 +1,4 @@
-package ru.ob11to.assertj;
+package ru.ob11to.assertj.task;
 
 public class Box {
     private static final String UNKNOWN = "Unknown object";
