@@ -1,4 +1,4 @@
-package ru.ob11to.assertj.task;
+package ru.ob11to.datastructure.assertj.task;
 
 import org.assertj.core.data.Percentage;
 import org.junit.jupiter.api.Test;

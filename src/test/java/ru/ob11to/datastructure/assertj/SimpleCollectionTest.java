@@ -1,4 +1,4 @@
-package ru.ob11to.assertj;
+package ru.ob11to.datastructure.assertj;
 
 import org.junit.jupiter.api.Test;
 

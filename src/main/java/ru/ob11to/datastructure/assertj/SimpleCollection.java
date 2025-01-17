@@ -1,4 +1,4 @@
-package ru.ob11to.assertj;
+package ru.ob11to.datastructure.assertj;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
