@@ -1,8 +1,11 @@
 package ru.ob11to.inputoutput.ionio.task;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,9 +31,20 @@ public class LogFilter {
         return Objects.equals(s[s.length - 2], "404");
     }
 
+    public static void save(List<String> log, String file) {
+        try (PrintWriter out = new PrintWriter(new BufferedOutputStream(new FileOutputStream(file)))) {
+            log.forEach(out::println);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         LogFilter logFilter = new LogFilter("data/log.txt");
-        logFilter.filter().forEach(System.out::println);
+        List<String> filterLog = logFilter.filter();
+        filterLog.forEach(System.out::println);
+        String fileErrorStatus = "data/task/404.txt";
+        save(filterLog, fileErrorStatus);
 
     }
 }
