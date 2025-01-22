@@ -1,0 +1,16 @@
+2025-01-22 19:32:00,051 DEBUG LoggingTest:main:12 - debug message
+2025-01-22 19:32:00,053  INFO LoggingTest:main:13 - info message
+2025-01-22 19:32:00,053  WARN LoggingTest:main:14 - warn message
+2025-01-22 19:32:00,053 ERROR LoggingTest:main:15 - error message
+2025-01-22 19:32:10,601 DEBUG LoggingTest:main:12 - debug message
+2025-01-22 19:32:10,602  INFO LoggingTest:main:13 - info message
+2025-01-22 19:32:10,602  WARN LoggingTest:main:14 - warn message
+2025-01-22 19:32:10,602 ERROR LoggingTest:main:15 - error message
+2025-01-22 19:32:26,794 DEBUG LoggingTest:main:12 - debug message
+2025-01-22 19:32:26,796  INFO LoggingTest:main:13 - info message
+2025-01-22 19:32:26,796  WARN LoggingTest:main:14 - warn message
+2025-01-22 19:32:26,796 ERROR LoggingTest:main:15 - error message
+2025-01-22 19:32:31,453 DEBUG LoggingTest:main:12 - debug message
+2025-01-22 19:32:31,455  INFO LoggingTest:main:13 - info message
+2025-01-22 19:32:31,455  WARN LoggingTest:main:14 - warn message
+2025-01-22 19:32:31,455 ERROR LoggingTest:main:15 - error message
