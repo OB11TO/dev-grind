@@ -14,3 +14,15 @@
 2025-01-22 19:32:31,455  INFO LoggingTest:main:13 - info message
 2025-01-22 19:32:31,455  WARN LoggingTest:main:14 - warn message
 2025-01-22 19:32:31,455 ERROR LoggingTest:main:15 - error message
+2025-01-23 13:50:12,015 DEBUG LoggingTest:main:12 - debug message
+2025-01-23 13:50:12,017  INFO LoggingTest:main:13 - info message
+2025-01-23 13:50:12,017  WARN LoggingTest:main:14 - warn message
+2025-01-23 13:50:12,017 ERROR LoggingTest:main:15 - error message
+2025-01-23 13:50:26,687 DEBUG LoggingTest:main:12 - debug message
+2025-01-23 13:50:26,689  INFO LoggingTest:main:13 - info message
+2025-01-23 13:50:26,690  WARN LoggingTest:main:14 - warn message
+2025-01-23 13:50:26,690 ERROR LoggingTest:main:15 - error message
+2025-01-23 13:50:27,851 DEBUG LoggingTest:main:12 - debug message
+2025-01-23 13:50:27,853  INFO LoggingTest:main:13 - info message
+2025-01-23 13:50:27,853  WARN LoggingTest:main:14 - warn message
+2025-01-23 13:50:27,853 ERROR LoggingTest:main:15 - error message
