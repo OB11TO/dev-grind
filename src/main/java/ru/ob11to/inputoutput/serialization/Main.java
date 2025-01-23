@@ -2,9 +2,45 @@ package ru.ob11to.inputoutput.serialization;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException {
+//        extracted();
+        Person person = new Person(false, 30, new Contact("11-111"), "Worker", "Married");
+        /* Получаем контекст для доступа к АПИ */
+        JAXBContext context = JAXBContext.newInstance(Person.class);
+        /* Создаем сериализатор */
+        Marshaller marshaller = context.createMarshaller();
+        /* Указываем, что нам нужно форматирование */
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        String xml = "";
+        try (StringWriter writer = new StringWriter()) {
+            /* Сериализуем */
+            marshaller.marshal(person, writer);
+            xml = writer.getBuffer().toString();
+            System.out.println(xml);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        /* Для десериализации нам нужно создать десериализатор */
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        try (StringReader reader = new StringReader(xml)) {
+            /* десериализуем */
+            Person result = (Person) unmarshaller.unmarshal(reader);
+            System.out.println(result);
+        }
+
+    }
+
+    private static void extracted() {
         final Person person = new Person(false, 30, new Contact("11-111"),
                 new String[]{"Worker", "Married"});
 

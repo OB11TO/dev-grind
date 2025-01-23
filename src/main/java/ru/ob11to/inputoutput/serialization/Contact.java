@@ -1,14 +1,25 @@
 package ru.ob11to.inputoutput.serialization;
 
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
 import java.io.*;
 import java.nio.file.Files;
 
+@XmlRootElement(name = "contact")
 public class Contact implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 5780672321457505738L;
 
-    private final String phone;
+//    @XmlElement(name = "lang")
+    @XmlAttribute
+    private String phone;
+
+    public Contact() {
+
+    }
 
     public Contact(String phone) {
         this.phone = phone;

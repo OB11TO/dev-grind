@@ -1,0 +1,2 @@
+2025-01-23 13:50:26,690 ERROR LoggingTest:main:15 - error message
+2025-01-23 13:50:27,853 ERROR LoggingTest:main:15 - error message
