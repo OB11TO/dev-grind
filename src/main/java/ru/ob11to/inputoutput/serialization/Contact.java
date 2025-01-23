@@ -3,18 +3,24 @@ package ru.ob11to.inputoutput.serialization;
 import java.io.*;
 import java.nio.file.Files;
 
-public record Contact(int zipCode, String phone) implements Serializable {
+public class Contact implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 5780672321457505738L;
 
+    private final String phone;
+
+    public Contact(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
-        return "Contact{" + "zipCode=" + zipCode + ", phone='" + phone + '\'' + '}';
+        return "Contact{" + ", phone='" + phone + '\'' + '}';
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        final Contact contact = new Contact(123456, "+7 (111) 111-11-11");
+        final Contact contact = new Contact("+7 (111) 111-11-11");
 
         /* Запись объекта во временный файл, который удалится системой */
         File tempFile = Files.createTempFile(null, null).toFile();
