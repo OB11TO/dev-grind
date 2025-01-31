@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ru.ob11to</groupId>
-  <artifactId>job4j_design</artifactId>
+  <artifactId>j4j_design</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
