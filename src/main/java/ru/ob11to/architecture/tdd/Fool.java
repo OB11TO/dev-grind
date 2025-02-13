@@ -19,7 +19,8 @@ public class Fool {
             var answer = input.nextLine();
             if (!answer.equals(setup(startAt))) {
                 System.out.println("Ошибка. Начинай снова.");
-                startAt = 0;
+                startAt = 1;
+                continue;
             }
             startAt++;
         }
