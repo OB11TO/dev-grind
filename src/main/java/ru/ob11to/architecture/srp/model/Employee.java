@@ -1,11 +1,21 @@
 package ru.ob11to.architecture.srp.model;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import ru.ob11to.architecture.srp.adapter.CalendarAdapterXml;
+
 import java.util.Calendar;
 import java.util.Objects;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
     private String name;
+
+    @XmlJavaTypeAdapter(CalendarAdapterXml.class)
     private Calendar hired;
+
+    @XmlJavaTypeAdapter(CalendarAdapterXml.class)
     private Calendar fired;
     private double salary;
 
