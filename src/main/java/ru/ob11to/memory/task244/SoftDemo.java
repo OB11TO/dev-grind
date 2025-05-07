@@ -57,8 +57,10 @@ public class SoftDemo {
         List<SoftReference<Object>> someData = new ArrayList<>();
         if (someData.get(0).get() != null) {
             /* do something */
+            System.out.println();
         } else {
             /* do something */
+            System.out.println();
         }
         /* do something */
         someData.get(0).get();
@@ -69,8 +71,10 @@ public class SoftDemo {
         Object strong = someData.get(0).get();
         if (strong != null) {
             /* do something */
+            System.out.println();
         } else {
             /* do something */
+            System.out.println();
         }
         /* work with strong */
     }

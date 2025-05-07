@@ -51,6 +51,4 @@ class SimpleModelTest {
                 /*проверяем наличие конкретного слова в сообщении:*/
                 .hasMessageContaining("name");
     }
-
-
 }

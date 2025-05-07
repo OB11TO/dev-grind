@@ -39,8 +39,12 @@ public class Document {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Document document = (Document) o;
         return Objects.equals(id, document.id) && type == document.type && Objects.equals(content, document.content);
     }

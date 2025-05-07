@@ -10,8 +10,8 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- *  Добавьте тестовые методы на каждый метод класса SimpleConvert,
- *  в которых покажите возможности проверки содержимого коллекции и отдельных ее элементов.
+ * Добавьте тестовые методы на каждый метод класса SimpleConvert,
+ * в которых покажите возможности проверки содержимого коллекции и отдельных ее элементов.
  */
 class SimpleConvertTest {
     @Test
@@ -48,6 +48,7 @@ class SimpleConvertTest {
                 .containsAnyOf("second", "six", "nine")
                 .allMatch(e -> e.length() >= 4);
     }
+
     @Test
     void checkMap() {
         SimpleConvert simpleConvert = new SimpleConvert();

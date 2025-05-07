@@ -12,6 +12,9 @@ public class ReferenceQueueDemo {
 
     private static void example3() throws InterruptedException {
         Object object = new Object() {
+            /**
+             * @throws Throwable Лучше не вызывать этот метод
+             */
             @Override
             protected void finalize() throws Throwable {
                 System.out.println("Removed");
