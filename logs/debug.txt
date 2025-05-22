@@ -26,3 +26,25 @@
 2025-01-23 13:50:27,853  INFO LoggingTest:main:13 - info message
 2025-01-23 13:50:27,853  WARN LoggingTest:main:14 - warn message
 2025-01-23 13:50:27,853 ERROR LoggingTest:main:15 - error message
+2025-05-22 13:18:04,724 DEBUG ru.ob11to.inputoutput.logging.UsageLog4j:main:12 - debug message
+2025-05-22 13:18:04,726  INFO ru.ob11to.inputoutput.logging.UsageLog4j:main:13 - info message
+2025-05-22 13:18:04,726  WARN ru.ob11to.inputoutput.logging.UsageLog4j:main:14 - warn message
+2025-05-22 13:18:04,727 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - error message
+2025-05-22 13:20:05,611 DEBUG ru.ob11to.inputoutput.logging.UsageLog4j:main:13 - User info name : Petr Arsentev, age : 33
+2025-05-22 13:20:56,748 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example java.lang.Exception: Not supported code Petr Arsentev
+2025-05-22 13:21:13,192 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example java.lang.Exception: Not supported code, Name Petr Arsentev
+2025-05-22 13:21:53,267 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example 
+java.lang.Exception: Not supported code
+	at ru.ob11to.inputoutput.logging.UsageSlf4jException.main(UsageSlf4jException.java:13)
+2025-05-22 13:23:14,807 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example Petr Arsentev 
+java.lang.Exception: Not supported code
+	at ru.ob11to.inputoutput.logging.UsageSlf4jException.main(UsageSlf4jException.java:13)
+2025-05-22 13:23:34,160 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example Petr Arsentev , {}
+java.lang.Exception: Not supported code
+	at ru.ob11to.inputoutput.logging.UsageSlf4jException.main(UsageSlf4jException.java:13)
+2025-05-22 13:23:35,570 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example Petr Arsentev , {}
+java.lang.Exception: Not supported code
+	at ru.ob11to.inputoutput.logging.UsageSlf4jException.main(UsageSlf4jException.java:13)
+2025-05-22 13:23:44,349 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example Petr Arsentev
+java.lang.Exception: Not supported code
+	at ru.ob11to.inputoutput.logging.UsageSlf4jException.main(UsageSlf4jException.java:13)

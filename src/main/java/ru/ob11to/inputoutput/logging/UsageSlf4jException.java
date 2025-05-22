@@ -8,10 +8,11 @@ public class UsageSlf4jException {
     private static final Logger LOG = LoggerFactory.getLogger(UsageLog4j.class.getName());
 
     public static void main(String[] args) {
+        String name = "Petr Arsentev";
         try {
             throw new Exception("Not supported code");
         } catch (Exception e) {
-            LOG.error("Exception in log example", e);
+            LOG.error("Exception in log example {}", name, e);
         }
     }
 }
