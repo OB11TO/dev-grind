@@ -48,3 +48,19 @@ java.lang.Exception: Not supported code
 2025-05-22 13:23:44,349 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - Exception in log example Petr Arsentev
 java.lang.Exception: Not supported code
 	at ru.ob11to.inputoutput.logging.UsageSlf4jException.main(UsageSlf4jException.java:13)
+2025-05-23 14:34:32,009 DEBUG ru.ob11to.inputoutput.logging.UsageLog4j:main:14 - debug message
+2025-05-23 14:34:32,011  INFO ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - info message
+2025-05-23 14:34:32,011  WARN ru.ob11to.inputoutput.logging.UsageLog4j:main:16 - warn message
+2025-05-23 14:34:32,012 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:17 - error message
+2025-05-23 14:35:49,646 DEBUG ru.ob11to.inputoutput.logging.UsageLog4j:main:14 - debug message
+2025-05-23 14:35:49,648  INFO ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - info message
+2025-05-23 14:35:49,648  WARN ru.ob11to.inputoutput.logging.UsageLog4j:main:16 - warn message
+2025-05-23 14:35:49,648 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:17 - error message
+2025-05-23 14:36:04,534 DEBUG ru.ob11to.inputoutput.logging.UsageLog4j:main:14 - debug message
+2025-05-23 14:36:04,535  INFO ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - info message
+2025-05-23 14:36:04,536  WARN ru.ob11to.inputoutput.logging.UsageLog4j:main:16 - warn message
+2025-05-23 14:36:04,536 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:17 - error message
+2025-05-23 14:38:25,436 DEBUG ru.ob11to.inputoutput.logging.UsageLog4j:main:14 - debug message
+2025-05-23 14:38:25,438  INFO ru.ob11to.inputoutput.logging.UsageLog4j:main:15 - info message
+2025-05-23 14:38:25,438  WARN ru.ob11to.inputoutput.logging.UsageLog4j:main:16 - warn message
+2025-05-23 14:38:25,439 ERROR ru.ob11to.inputoutput.logging.UsageLog4j:main:17 - error message
