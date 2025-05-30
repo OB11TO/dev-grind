@@ -11,8 +11,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GeneratorOxfordCSVContext {
 
@@ -32,7 +35,7 @@ public class GeneratorOxfordCSVContext {
                 .withCSVParser(new CSVParserBuilder().withSeparator(',').build())
                 .build()) {
 
-            List<String[]> lines = reader.readAll();
+            List<String[]> lines = reader.readAll().stream().skip(1).toList();
             for (String[] row : lines) {
                 if (row.length >= 10) {
                     map.put(row[0].trim(), new WordRow(
@@ -50,17 +53,6 @@ public class GeneratorOxfordCSVContext {
         if (lines.isEmpty()) {
             return;
         }
-
-        // Обработка заголовка
-        String[] header = lines.get(0).split(",");
-        if (header.length >= 3) {
-            WordRow headerRow = wordMap.get(header[0].trim());
-            if (headerRow != null) {
-                headerRow.cefr = "cefr";
-            }
-        }
-
-        // Обработка остальных строк
         lines.stream()
                 .skip(1)
                 .map(line -> line.split(","))
@@ -75,7 +67,21 @@ public class GeneratorOxfordCSVContext {
     }
 
     private static void writeSortedCSV(Map<String, WordRow> wordMap, String outputPath) throws IOException {
-        List<String[]> rows = wordMap.values().stream()
+        List<String[]> rows = new ArrayList<>();
+        rows.add(new String[]{
+                "Word",
+                "Definition",
+                "Turkish Translation",
+                "Example Sentence",
+                "Part of Speech",
+                "Related Forms",
+                "Synonyms",
+                "Antonyms",
+                "Collocations",
+                "Russian Translation",
+                "CEFR"
+        });
+        rows.addAll(wordMap.values().stream()
                 .sorted(Comparator
                         .comparing((WordRow row) -> row.cefr, Comparator.nullsLast(String::compareToIgnoreCase))
                         .thenComparing(row -> row.word, Comparator.nullsLast(String::compareToIgnoreCase)))
@@ -92,7 +98,7 @@ public class GeneratorOxfordCSVContext {
                         row.russianTranslation,
                         row.cefr
                 })
-                .collect(Collectors.toList());
+                .toList());
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(outputPath))) {
             writer.writeAll(rows);
