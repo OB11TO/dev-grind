@@ -34,16 +34,13 @@ public class GeneratorOxfordCSVContext {
         try (CSVReader reader = new CSVReaderBuilder(new FileReader(filePath))
                 .withCSVParser(new CSVParserBuilder().withSeparator(',').build())
                 .build()) {
-
-            List<String[]> lines = reader.readAll().stream().skip(1).toList();
-            for (String[] row : lines) {
-                if (row.length >= 10) {
-                    map.put(row[0].trim(), new WordRow(
+            reader.readAll().stream()
+                    .skip(1)
+                    .filter(row -> row.length >= 10)
+                    .forEach(row -> map.put(row[0].trim(), new WordRow(
                             row[0].trim(), row[1].trim(), row[2].trim(), row[3].trim(), row[4].trim(),
                             row[5].trim(), row[6].trim(), row[7].trim(), row[8].trim(), row[9].trim(), null
-                    ));
-                }
-            }
+                    )));
         }
         return map;
     }
