@@ -14,13 +14,12 @@ public class BinaryTest {
         System.out.println(a);
         System.out.println(b);
 
-        HashMap <String, String> stringStringHashMap = new HashMap<>();
+        HashMap<String, String> stringStringHashMap = new HashMap<>();
         stringStringHashMap.put("a", "1");
         stringStringHashMap.put("a", "2");
 
         stringStringHashMap.put("b", "3");
         System.out.println();
-
 
         int first = 5;
         int second = -8;
