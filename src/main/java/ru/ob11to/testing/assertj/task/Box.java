@@ -1,4 +1,4 @@
-package ru.ob11to.datastructure.assertj.task;
+package ru.ob11to.testing.assertj.task;
 
 public class Box {
     private static final String UNKNOWN = "Unknown object";

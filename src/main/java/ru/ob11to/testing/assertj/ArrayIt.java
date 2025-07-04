@@ -1,4 +1,4 @@
-package ru.ob11to.datastructure.assertj;
+package ru.ob11to.testing.assertj;
 
 import java.util.Iterator;
 
