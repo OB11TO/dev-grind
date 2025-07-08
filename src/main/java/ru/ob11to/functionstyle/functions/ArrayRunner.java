@@ -17,7 +17,7 @@ public class ArrayRunner {
     static class ArrayIntFunction implements IntFunction<String[]> {
         @Override
         public String[] apply(int value) {
-            return new String[value] ;
+            return new String[value];
         }
     }
 }
