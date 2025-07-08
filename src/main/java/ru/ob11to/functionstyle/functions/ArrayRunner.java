@@ -17,7 +17,12 @@ public class ArrayRunner {
         HardArray[] array3 = list.stream()
                 .map(HardArray::new)
                 .toArray(new HardArrayIntFunction());
+
+        HardArray[] array4 = list.stream()
+                .map(HardArray::new)
+                .toArray(HardArray[]::new);
         System.out.println(Arrays.toString(array3));
+        System.out.println(Arrays.toString(array4));
     }
 
     static class HardArray {
