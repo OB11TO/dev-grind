@@ -1,4 +1,4 @@
-package ru.ob11to.functionstyle.functions;
+package ru.ob11to.functionstyle.streamapi.collectors;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,18 +11,35 @@ import java.util.function.Supplier;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class Socks {
+public class CollectorsSocks {
     public static void main(String[] args) {
         List<String> socks = List.of("red", "green", "blue", "red", "black", "black", "black");
-         socks.stream()
+        socks.stream()
                 .collect(new SocksPair())
-                 .entrySet().stream()
-                 .filter(e -> e.getValue() % 2 != 0)
-                 .forEach(e -> System.out.println(e.getKey()));
+                .entrySet().stream()
+                .filter(e -> e.getValue() % 2 != 0)
+                .forEach(e -> System.out.println(e.getKey()));
 
-         socks.stream()
-                 .collect(Collectors.groupingBy(obj -> obj, Collectors.counting()))
-                 .forEach((key, value) -> System.out.println(key + " " + value));
+        System.out.println("______________________________________");
+
+        socks.stream().collect(Collectors.toMap(Function.identity(), value -> 1, Integer::sum))
+                .entrySet().stream()
+                .filter(e -> e.getValue() % 2 != 0)
+                .forEach(e -> System.out.println(e.getKey()));
+
+        System.out.println("______________________________________");
+
+        socks.stream()
+                .collect(Collectors.groupingBy(obj -> obj, Collectors.counting()))
+                .forEach((key, value) -> System.out.println(key + " " + value));
+
+        System.out.println("______________________________________");
+
+        socks.stream()
+                .collect(Collectors.groupingBy(Function.identity()))
+                .forEach((key, value) -> System.out.println(key + " " + value));
+
+        System.out.println("______________________________________");
 
         Map<Boolean, List<String>> collect = socks.stream()
                 .collect(Collectors.partitioningBy(a -> a.length() % 2 != 0));
