@@ -1,11 +1,13 @@
 package ru.ob11to.functionstyle.streamapi.collect;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.averagingInt;
@@ -20,9 +22,9 @@ public class CollectorsGPT {
     public static void main(String[] args) {
         //example1();
         //example2();
-        //example3();
+        example3();
         //example4();
-        example5();
+        //example5();
     }
 
     /**
@@ -33,7 +35,8 @@ public class CollectorsGPT {
      * В каждом департаменте найти сотрудника с максимальной зарплатой.
      */
     private static void example5() {
-        record Employee(String name, String department, int salary) {}
+        record Employee(String name, String department, int salary) {
+        }
         List<Employee> employees = List.of(
                 new Employee("Alice", "IT", 1000),
                 new Employee("Bob", "HR", 1500),
@@ -82,7 +85,8 @@ public class CollectorsGPT {
      * {@code Rome   -> {avgAge=50.0, names="Frank"}}<p>
      */
     private static void example3() {
-        record Person(String name, String city, int age) {}
+        record Person(String name, String city, int age) {
+        }
         List<Person> people = List.of(
                 new Person("Alice", "London", 23),
                 new Person("Bob", "London", 30),
@@ -101,11 +105,63 @@ public class CollectorsGPT {
                                 (avgAge, names) -> Map.of("avgAge", avgAge, "names", names)
                         )));
 
+        Map<String, Map<String, ? extends Serializable>> result = people.stream()
+                .collect(groupingBy(
+                        Person::city,
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                list -> {
+                                    String personInCity = list.stream().map(Person::name).collect(joining(", "));
+                                    Double averageAge = list.stream().collect(averagingInt(Person::age));
+                                    return Map.of("avgAge", averageAge, "names", personInCity);
+                                }
+                        )
+                ));
+        result.forEach((key, value) -> System.out.println(key + ": " + value));
+
         collect.forEach((k, v) -> System.out.println(k + " " + v));
 
 
     }
 
+    public static record Person(String name, String city, int age) {
+    }
+
+    // Накопитель для одного города — собираем имена в List, сумму возрастов и количество
+    static class Acc {
+        final List<String> names = new ArrayList<>();
+        long sum = 0L;
+        long count = 0L;
+
+        void add(Person p) {
+            names.add(p.name());
+            sum += p.age();
+            count++;
+        }
+
+        Acc combine(Acc other) {
+            // объединяем два аккумулятора (вызовется при параллельном выполнении)
+            this.names.addAll(other.names);
+            this.sum += other.sum;
+            this.count += other.count;
+            return this;
+        }
+    }
+
+    // Коллектор: в один проход собирает список имён и статистику по возрасту
+    static Collector<Person, Acc, Map<String, ? extends Serializable>> cityStatsOnePassCollector() {
+        return Collector.of(
+                Acc::new, // supplier: создаём новый аккумулятор
+                Acc::add, // accumulator: добавляем одного Person
+                (a, b) -> a.combine(b), // combiner: как объединить два аккумулятора
+                acc -> { // finisher: формируем финальный Map для одной группы
+                    double avg = acc.count == 0 ? 0.0 : ((double) acc.sum) / acc.count;
+                    String namesJoined = String.join(", ", acc.names);
+                    return Map.of("avgAge", avg, "names", namesJoined);
+                },
+                Collector.Characteristics.UNORDERED // можно указать UNORDERED (не влияет на корректность здесь)
+        );
+    }
 
     /**
      * Нужно:<p>
@@ -114,7 +170,8 @@ public class CollectorsGPT {
      * В каждой такой подгруппе посчитать количество людей.<p>
      */
     private static void example2() {
-        record Person(String name, String city, int age) {}
+        record Person(String name, String city, int age) {
+        }
         List<Person> people = List.of(
                 new Person("Alice", "London", 23),
                 new Person("Bob", "London", 30),
@@ -133,11 +190,10 @@ public class CollectorsGPT {
     }
 
 
-
     /**
      * Нужно:<p>
      * Посчитать частоту встречаемости каждого слова
-     *{@code (Map<String, Long>)}.<p>
+     * {@code (Map<String, Long>)}.<p>
      * Найти слово, которое встречается чаще всего.
      */
     private static void example1() {
