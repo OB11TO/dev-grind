@@ -1,9 +1,11 @@
 package ru.ob11to.architecture.srp.report;
 
 import org.junit.jupiter.api.Test;
-import ru.ob11to.architecture.srp.model.Employee;
-import ru.ob11to.architecture.srp.store.MemoryStore;
-import ru.ob11to.architecture.srp.store.Store;
+import ru.ob11to.architecture.solid.srp.model.Employee;
+import ru.ob11to.architecture.solid.srp.report.Report;
+import ru.ob11to.architecture.solid.srp.report.ReportEngineHR;
+import ru.ob11to.architecture.solid.srp.store.MemoryStore;
+import ru.ob11to.architecture.solid.srp.store.Store;
 
 import java.util.Calendar;
 

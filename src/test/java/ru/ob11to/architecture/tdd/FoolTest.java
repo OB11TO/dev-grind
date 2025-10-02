@@ -1,6 +1,7 @@
 package ru.ob11to.architecture.tdd;
 
 import org.junit.jupiter.api.Test;
+import ru.ob11to.architecture.solid.tdd.Fool;
 
 import static org.assertj.core.api.Assertions.*;
 

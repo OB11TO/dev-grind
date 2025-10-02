@@ -1,6 +1,11 @@
 package ru.ob11to.architecture.lsp;
 
 import org.junit.jupiter.api.Test;
+import ru.ob11to.architecture.solid.lsp.ControlQuality;
+import ru.ob11to.architecture.solid.lsp.Food;
+import ru.ob11to.architecture.solid.lsp.Shop;
+import ru.ob11to.architecture.solid.lsp.Trash;
+import ru.ob11to.architecture.solid.lsp.Warehouse;
 
 import java.time.LocalDate;
 import java.util.List;

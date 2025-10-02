@@ -1,10 +1,12 @@
 package ru.ob11to.architecture.srp.report;
 
 import org.junit.jupiter.api.Test;
-import ru.ob11to.architecture.srp.formatter.DateTimeParser;
-import ru.ob11to.architecture.srp.formatter.ReportDateTimeParser;
-import ru.ob11to.architecture.srp.model.Employee;
-import ru.ob11to.architecture.srp.store.MemoryStore;
+import ru.ob11to.architecture.solid.srp.formatter.DateTimeParser;
+import ru.ob11to.architecture.solid.srp.formatter.ReportDateTimeParser;
+import ru.ob11to.architecture.solid.srp.model.Employee;
+import ru.ob11to.architecture.solid.srp.report.Report;
+import ru.ob11to.architecture.solid.srp.report.ReportEngine;
+import ru.ob11to.architecture.solid.srp.store.MemoryStore;
 
 import java.util.Calendar;
 

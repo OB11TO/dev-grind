@@ -2,6 +2,8 @@ package ru.ob11to.architecture.tdd;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import ru.ob11to.architecture.solid.tdd.Generator;
+import ru.ob11to.architecture.solid.tdd.GeneratorImpl;
 
 import java.util.Map;
 
